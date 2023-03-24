@@ -7,4 +7,4 @@ console.log(pathExistence('README.md'))
 
 // Verifying if the path is absolute
 const isItAbsolute = (randomPath) => path.isAbsolute(randomPath)
-console.log(isItAbsolute('mdLinks.md'))
+console.log(isItAbsolute('README.md'))
