@@ -1,9 +1,10 @@
-// Confirming the path's existence
-
 const fs = require('fs');
+const path = require('path');
 
-const path = __dirname + '/README.md';
+// Confirming the path's existence
+const pathExistence = (randomPath) => fs.existsSync(randomPath)
+console.log(pathExistence('README.md'))
 
-if (fs.existsSync(path)) {
-    console.log('File exists :)');
-};
+// Verifying if the path is absolute
+const isItAbsolute = (randomPath) => path.isAbsolute(randomPath)
+console.log(isItAbsolute('mdLinks.md'))
