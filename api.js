@@ -27,17 +27,28 @@ const isItMd = (randomPath) => {
 };
 console.log(isItMd('README.md'), 'is the file .md?');
 
-// Reading the Markdown file
+// Reading the markdown file
 const readingTheFile = (randomPath) => {
     return new Promise((resolve, reject) => {
-        fs.readFile(randomPath, 'utf-8', (error, fileContent) => {
-            if (error) {
+        fs.readFile(randomPath, 'utf-8', (error, fileContent) => { // estudiar el callback de este método
+            if (error) { // cambiar el if else por un try catch y tomar los errores correctamente
                 reject(error);
             } else {
                 resolve(fileContent);
             }
         });
-        console.log('Mensaje para verificar si la función es asíncrona');
+        console.log('Mensaje para verificar si la función es asíncrona'); // creo que esto no está funcionando asincrónico
     });
 };
-console.log(readingTheFile('README.md'), 'función asíncrona ejecutada');
+console.log(readingTheFile('README.md'), 'sigue el recorrido'); // por qué dice 'pending' siendo que ya le di una ruta?
+
+// Getting the links within the file
+// axios?
+
+module.exports = {
+    pathExistence,
+    isItAbsolute,
+    relativeToAbsolute,
+    isItMd,
+    readingTheFile
+};
