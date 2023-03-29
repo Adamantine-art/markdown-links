@@ -43,7 +43,7 @@ const readingTheFile = (randomPath) => {
 console.log(readingTheFile('README.md'), 'sigue el recorrido'); // por qué dice 'pending' siendo que ya le di una ruta?
 
 // Getting the links within the file
-// axios?
+// RegExp
 
 module.exports = {
     pathExistence,
