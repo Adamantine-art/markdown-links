@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/Adamantine-art/markdown-links/issues"
   },
-  "homepage": "https://github.com/Adamantine-art/markdown-links#readme"
+  "homepage": "https://github.com/Adamantine-art/markdown-links#readme",
+  "dependencies": {
+    "promise-it-wont-hurt": "^1.1.3"
+  }
 }
