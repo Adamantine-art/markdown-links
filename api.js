@@ -9,23 +9,23 @@ const pathExistence = (randomPath) => {
         return 'The path does not exist';
     }
 };
-console.log(pathExistence('README.md'), '<- does the path exist?');
+// console.log(pathExistence('README.md'), '<- does the path exist?');
 
 // Verifying if the path is absolute
 const isItAbsolute = (randomPath) => path.isAbsolute(randomPath)
-console.log(isItAbsolute('README.md'), '<- is it absolute?');
+// console.log(isItAbsolute('README.md'), '<- is it absolute?');
 
 // Converting the relative path into absolute
 const relativeToAbsolute = (randomPath) => {
     return path.resolve(randomPath);
 };
-console.log(relativeToAbsolute('README.md'), '<- converting the relative path into absolute');
+// console.log(relativeToAbsolute('mdFile.md'), '<- converting the relative path into absolute');
 
 // Checking the file's extension
 const isItMd = (randomPath) => {
     return path.extname(randomPath) === '.md';
 };
-console.log(isItMd('README.md'), '<- is the file .md?');
+//console.log(isItMd('README.md'), '<- is the file .md?');
 
 // Reading the markdown file
 const readingTheFile = (randomPath) => {
@@ -48,7 +48,9 @@ readingTheFile('mdFile.md').then((mdContent) => {
 });
 
 // Getting the links within the file
-// RegExp
+const gettingTheLinks = (randomPath) => {
+
+}
 
 module.exports = {
     pathExistence,
@@ -57,3 +59,8 @@ module.exports = {
     isItMd,
     readingTheFile
 };
+// preguntar si fetch o axios -> fetch
+// cómo empezar tests asíncronos -> tomar los console log
+// si configuré bien el package json
+// cómo configurar las reglas de eslint **
+// preguntar por que no me funciona el promise-it-wont-hurt

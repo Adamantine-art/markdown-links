@@ -15,7 +15,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "test"
+    "test": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,10 @@
   },
   "homepage": "https://github.com/Adamantine-art/markdown-links#readme",
   "dependencies": {
+    "eslint": "^8.37.0",
     "promise-it-wont-hurt": "^1.1.3"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
