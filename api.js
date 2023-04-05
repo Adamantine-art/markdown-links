@@ -36,21 +36,26 @@ const readingTheFile = (randomPath) => {
     });
 };
 
-// Executing the promise
-// readingTheFile('mdFile.md').then((mdContent) => {
-//     console.log(mdContent);
-// }).catch((err) => {
-//     console.log(err);
-// });
+// Executing the promise - pasar a mdLinks
+readingTheFile('README.md').then((mdContent) => {
+    const links = gettingTheLinks(mdContent);
+    for (let i = 0; i < links.length; i++) {
+        const element = links[i][0];
+        const linkText = element.replace("[","").replace(")","");
+        const arrayLink = linkText.split("](");
+        console.log(arrayLink);
+    }
+    // obj href, text, file
+}).catch((err) => {
+    console.log(err);
+});
 
 // Getting the links within the file with regex
 const gettingTheLinks = (readingTheFile) => {
     const linkRegex = /\[([^\]]+)\]\((http[s]?:\/\/[^\)]+)\)/g;
     const linksExtracted = readingTheFile.matchAll(linkRegex)
-    return linksExtracted;
+    return [...linksExtracted];
 };
-console.log(gettingTheLinks('README.md'));
-
 
 module.exports = {
     pathExistence,
