@@ -39,13 +39,21 @@ const readingTheFile = (randomPath) => {
 // Executing the promise - pasar a mdLinks
 readingTheFile('README.md').then((mdContent) => {
     const links = gettingTheLinks(mdContent);
-    for (let i = 0; i < links.length; i++) {
-        const element = links[i][0];
-        const linkText = element.replace("[","").replace(")","");
-        const arrayLink = linkText.split("](");
-        console.log(arrayLink);
+    const finalObject = [];
+    for (let i = 0; i < links.length; i++) { // accessing to the array
+        const element = links[i][0]; //accessing to the first element of the array(text)
+        const linkText = element.replace("[", "").replace(")", ""); // replacing [ & ) with empty strings to clean the text
+        const arrayLink = linkText.split("]("); // splitting the text from the link
+
+        // Creating the Object within the previous array
+        finalObject.push({
+            href: arrayLink[1],
+            text: arrayLink[0],
+            file: 'README.md',
+        })
     }
-    // obj href, text, file
+    console.log(finalObject);
+
 }).catch((err) => {
     console.log(err);
 });
@@ -54,7 +62,7 @@ readingTheFile('README.md').then((mdContent) => {
 const gettingTheLinks = (readingTheFile) => {
     const linkRegex = /\[([^\]]+)\]\((http[s]?:\/\/[^\)]+)\)/g;
     const linksExtracted = readingTheFile.matchAll(linkRegex)
-    return [...linksExtracted];
+    return [...linksExtracted]; // converting the object into an array
 };
 
 module.exports = {
