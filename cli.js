@@ -1,1 +1,2 @@
-// se alimenta de mdlinks
+const { mdLinks } = require('./index');
+
