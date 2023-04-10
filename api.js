@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch');
 
 // Confirming the path's existence
 const pathExistence = (randomPath) => {
@@ -39,6 +40,17 @@ const gettingTheLinks = (readingTheFile) => {
     const linksExtracted = readingTheFile.matchAll(linkRegex)
     return [...linksExtracted]; // converting the object into an array
 };
+
+// HTTP Request with fetch method
+const httpRequest = (url) => {
+    // acá va un ciclo for
+    fetch(url)
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => console.log(err));
+};
+httpRequest('https://www.youtube.com/watch?v=Lub5qOmY4JQ');
 
 module.exports = {
     pathExistence,

@@ -37,7 +37,8 @@
   },
   "homepage": "https://github.com/Adamantine-art/markdown-links#readme",
   "dependencies": {
-    "promise-it-wont-hurt": "^1.1.3"
+    "node-console-colors": "^1.1.5",
+    "node-fetch": "^2.6.9"
   },
   "devDependencies": {
     "eslint": "^8.37.0",

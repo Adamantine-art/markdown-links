@@ -1,5 +1,7 @@
-const { pathExistence, isItAbsolute, isItMd, readingTheFile } = require('../api.js');
+const { pathExistence, isItAbsolute, isItMd, readingTheFile, gettingTheLinks } = require('../api.js');
+const { mdLinks } = require('../index.js');
 
+// API.JS
 // Confirming the path's existence
 describe('Does the path exist?', () => {
   it('should return true', () => {
@@ -27,3 +29,22 @@ describe('Reading the .md file', () => {
     expect(readingTheFile('mdFile.md')).resolves.toBe('✦ Reading the Markdown File ✦')
   });
 });
+
+// // Getting the links within the markdown file
+// describe('Getting the links withing the .md file', () => {
+//   it('should return an array', () => {
+//     expect(gettingTheLinks(readingTheFile('mdFile.md'))).toBe([{
+//       href: 'https://developer.mozilla.org/',
+//       text: 'Random Text',
+//       file: 'README.md'
+//     }]);
+//   });
+// });
+
+// // INDEX.JS
+// // Testing mdLinks function
+// describe('Testing the mdLinks function', () => {
+//   it('should return a promise', () => {
+//     expect(mdLinks('mdFile.md')).toBe(Promise);
+//   });
+// });

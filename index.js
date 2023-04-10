@@ -3,18 +3,15 @@ const { pathExistence, isItAbsolute, isItMd, readingTheFile, gettingTheLinks } =
 const mdLinks = (path, options) => {
     return new Promise((resolve, reject) => {
         if (!pathExistence(path)) {
-            reject('The path does not exist');
-            return; // preguntar si se puede return reject
+            return reject('The path does not exist');
         }
 
         if (!isItAbsolute(path)) {
-            reject('The path is relative, should convert into an absolute path');
-            return;
+            return reject('The path is relative, should convert into an absolute path');
         }
 
         if (!isItMd(path)) {
-            reject('The file is not .md');
-            return;
+            return reject('The file is not .md');
         }
 
         // Executing the promise
@@ -40,5 +37,6 @@ const mdLinks = (path, options) => {
         });
     })
 };
+mdLinks('README.md');
 
 module.exports = mdLinks;
