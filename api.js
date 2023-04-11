@@ -41,21 +41,69 @@ const gettingTheLinks = (readingTheFile) => {
     return [...linksExtracted]; // converting the object into an array
 };
 
-// HTTP Request with fetch method
-const httpRequest = (url) => {
-    // acá va un ciclo for
-    fetch(url)
-        .then(data => {
-            console.log(data)
+// Validating the links within the array showing status
+const validatingTheLinks = (collectedLinks) => {
+    return new Promise((resolve) => {
+        let finalObject = collectedLinks.map((link) => {
+            fetch(link.href)
+            // Promise.allSettled()
+                .then(data => {
+                    console.log(data)
+                    return {
+                        href: link.href,
+                        text: link.text,
+                        file: link.file,
+                        status: data.status,
+                        statusMessage: data.statusText,
+                        ok: 'ok'
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    return {
+                        href: link.href,
+                        text: link.text,
+                        file: link.file,
+                        status: error.status,
+                        statusMessage: error.statusText,
+                        ok: 'fail'
+                    }
+                });
         })
-        .catch(err => console.log(err));
+        resolve(finalObject);
+})
 };
-httpRequest('https://www.youtube.com/watch?v=Lub5qOmY4JQ');
+
+
+
+readingTheFile('README.md').then((mdContent) => {
+    const links = gettingTheLinks(mdContent);
+    const finalObject = [];
+    for (let i = 0; i < links.length; i++) { // accessing to the array
+        const element = links[i][0]; //accessing to the first element of the array(text)
+        const linkText = element.replace("[", "").replace(")", ""); // replacing [ & ) with empty strings to clean the text
+        const arrayLink = linkText.split("]("); // splitting the text from the link
+
+        // Creating the Object within the previous array
+        finalObject.push({
+            href: arrayLink[1],
+            text: arrayLink[0],
+            file: 'README.md',
+        })
+    }
+    validatingTheLinks(finalObject).then((webo) => {
+        console.log(webo);
+    });
+    //console.log(finalObject);
+
+}).catch((err) => {
+    console.log(err);
+});
 
 module.exports = {
     pathExistence,
     isItAbsolute,
     isItMd,
     readingTheFile,
-    gettingTheLinks
+    gettingTheLinks,
 };
