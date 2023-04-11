@@ -43,38 +43,30 @@ const gettingTheLinks = (readingTheFile) => {
 
 // Validating the links within the array showing status
 const validatingTheLinks = (collectedLinks) => {
-    return new Promise((resolve) => {
-        let finalObject = collectedLinks.map((link) => {
-            fetch(link.href)
-            // Promise.allSettled()
+
+        let finalObjectValidated = collectedLinks.map((link) => {
+            return fetch(link.href)
                 .then(data => {
-                    console.log(data)
                     return {
                         href: link.href,
                         text: link.text,
                         file: link.file,
                         status: data.status,
-                        statusMessage: data.statusText,
-                        ok: 'ok'
+                        ok: data.statusText,
                     }
                 })
                 .catch(error => {
-                    console.log(error)
                     return {
                         href: link.href,
                         text: link.text,
                         file: link.file,
                         status: error.status,
-                        statusMessage: error.statusText,
-                        ok: 'fail'
+                        ok: error.statusText,
                     }
                 });
         })
-        resolve(finalObject);
-})
-};
-
-
+        return Promise.all(finalObjectValidated);
+}
 
 readingTheFile('README.md').then((mdContent) => {
     const links = gettingTheLinks(mdContent);
@@ -91,10 +83,10 @@ readingTheFile('README.md').then((mdContent) => {
             file: 'README.md',
         })
     }
-    validatingTheLinks(finalObject).then((webo) => {
+    validatingTheLinks(finalObject).then((webo) => { // console log de validatingTheLinks
         console.log(webo);
     });
-    //console.log(finalObject);
+    // console.log(finalObject);
 
 }).catch((err) => {
     console.log(err);
