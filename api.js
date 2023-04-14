@@ -41,7 +41,7 @@ const gettingTheLinks = (readingTheFile) => {
     return [...linksExtracted]; // converting the object into an array
 };
 
-// Validating the links within the array showing status
+// Validating the links within the array showing status - testear
 const validatingTheLinks = (collectedLinks) => {
 
         let finalObjectValidated = collectedLinks.map((link) => {
@@ -52,7 +52,7 @@ const validatingTheLinks = (collectedLinks) => {
                         text: link.text,
                         file: link.file,
                         status: data.status,
-                        state: data.statusText,
+                        ok: data.statusText,
                     }
                 })
                 .catch(error => {
@@ -61,12 +61,31 @@ const validatingTheLinks = (collectedLinks) => {
                         text: link.text,
                         file: link.file,
                         status: error.status,
-                        state: error.statusText,
+                        ok: error.statusText,
                     }
                 });
         })
         return Promise.all(finalObjectValidated);
-}
+};
+
+// CLI Functions
+// Total links Function
+const totalLinks = (collectedLinks) => {
+    return collectedLinks.length;
+};
+
+// Broken links function
+const brokenLinks = (collectedLinks) => {
+    const brokenLinks = collectedLinks.filter((collectedLinks) => collectedLinks.ok === 'fail');
+    return brokenLinks.length;
+};
+
+// Unique links function
+const uniqueLinks = (collectedLinks) => {
+    const url = (collectedLinks.map((collectedLinks) => collectedLinks.href)); // taking the array with links previously collected
+    const uniqueLinks = url.filter((link, index) => url.indexOf(link) === index) // filtering unique links
+    return uniqueLinks.length; 
+};
 
 module.exports = {
     pathExistence,
@@ -74,5 +93,8 @@ module.exports = {
     isItMd,
     readingTheFile,
     gettingTheLinks,
-    validatingTheLinks
+    validatingTheLinks,
+    totalLinks,
+    brokenLinks,
+    uniqueLinks
 };

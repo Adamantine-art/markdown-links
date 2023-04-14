@@ -22,7 +22,7 @@ const mdLinks = (path, options) => {
                     const element = links[i][0]; //accessing to the first element of the array(text)
                     const linkText = element.replace("[", "").replace(")", ""); // replacing [ & ) with empty strings to clean the text
                     const arrayLink = linkText.split("]("); // splitting the text from the link
-            
+
                     // Creating the Object within the previous array
                     finalObject.push({
                         href: arrayLink[1],
@@ -30,34 +30,36 @@ const mdLinks = (path, options) => {
                         file: path,
                     })
                 }
-                 console.log(finalObject);
-            
+                resolve(finalObject);
+
             }).catch((err) => {
                 console.log(err);
             });
         }
 
-        if  (options.validate) {
+        if (options.validate) {
             return readingTheFile(path).then((mdContent) => {
                 const links = gettingTheLinks(mdContent);
                 const finalObject = [];
-                for (let i = 0; i < links.length; i++) { // accessing to the array
-                    const element = links[i][0]; //accessing to the first element of the array(text)
-                    const linkText = element.replace("[", "").replace(")", ""); // replacing [ & ) with empty strings to clean the text
-                    const arrayLink = linkText.split("]("); // splitting the text from the link
-            
-                    // Creating the Object within the previous array
+                for (let i = 0; i < links.length; i++) {
+                    const element = links[i][0];
+                    const linkText = element.replace("[", "").replace(")", "");
+                    const arrayLink = linkText.split("](");
+
                     finalObject.push({
                         href: arrayLink[1],
                         text: arrayLink[0],
                         file: path,
                     })
                 }
-                validatingTheLinks(finalObject).then(console.log); // console log de validatingTheLinks
+                validatingTheLinks(finalObject).then((response) => {
+                    resolve(response)
+                    
+                });
             })
         };
     })
 };
-mdLinks('README.md', {validate: false});
+// mdLinks('README.md', {validate: false});
 
 module.exports = mdLinks;

@@ -37,6 +37,7 @@
   },
   "homepage": "https://github.com/Adamantine-art/markdown-links#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "node-console-colors": "^1.1.5",
     "node-fetch": "^2.6.9"
   },
@@ -48,5 +49,8 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "jest": "^29.5.0"
+  },
+  "bin": {
+    "mdlinks-adamantine": "./cli.js"
   }
 }
