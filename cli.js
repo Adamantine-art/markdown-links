@@ -10,7 +10,7 @@ const help = process.argv.includes('--help') || process.argv.includes('--h');
 const cli = () => {
 
     if (!path || help) {
-        console.log(chalk.magentaBright.bold('✦  '), chalk.green('Welcome to the Markdown Links Library'), chalk.magentaBright.bold(' ✦\n'));
+        console.log(chalk.greenBright('✦ '), chalk.magenta('Welcome to the Markdown Links Library'), chalk.greenBright('✦\n'));
         console.log('Markdown Links is a library where you can verify the status of your links within a Markdown file.');
         console.log('Please introduce the path of your .md file.');
         console.log('You can use the following commands:\n');

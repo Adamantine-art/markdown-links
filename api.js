@@ -76,7 +76,7 @@ const totalLinks = (collectedLinks) => {
 
 // Broken links function
 const brokenLinks = (collectedLinks) => {
-    const brokenLinks = collectedLinks.filter((collectedLinks) => collectedLinks.ok === 'fail');
+    const brokenLinks = collectedLinks.filter((collectedLinks) => collectedLinks.ok === 'Forbidden' || collectedLinks.ok === 'Not Found');
     return brokenLinks.length;
 };
 
