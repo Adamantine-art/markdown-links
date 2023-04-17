@@ -22,23 +22,20 @@ Within an open source community, we have been proposed to create a tool using [N
 
 ### Install
 
-You can execute the commands on your favorite terminal. After typing the name of the package adamantine-links you put the relative path of your markdown file *including the md extension* as a first parameter to get the basic statistics: href, text and file (url, the clickeable text of that url and the file you're executing).
+You can execute the commands on your favorite terminal. After typing the name of the package adamantine-links you put the relative path of your markdown file **including the md extension** as a first parameter to get the basic statistics: href, text and file (url, the clickeable text of that url and the file you're executing).
 The outcome will be an array of objects.
 
-*Example*
-
-$ adamantine-links README.md
 
 ### Installing the package via npm
 
 ```sh
-$ npm install adamantine-links -g
+npm install adamantine-links -g
 ```
 
 ### Install the package via GitHub
 
 ```sh
-git clone https://github.com/Adamantine-art/markdown-links.git
+https://github.com/Adamantine-art/markdown-links.git
 ```
 
 ### Quick Start
@@ -47,9 +44,9 @@ After you have installed the package you can just execute `adamantine-links` to 
 
 ![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/welcome.jpg)
 
-You can parse a file following this structure:
+You can parse any .md file following this structure:
 
-`adamantine-links your-file.md --CLIoptions`
+`$ adamantine-links your-file.md --CLIoptions`
 
 Then the output will be an array of objects with all the links and their properties.
 
@@ -60,19 +57,19 @@ Then the output will be an array of objects with all the links and their propert
 
 You can get more specific stats by using the following commands: 
 
-### --validate or --v
+### --validate
 
 You get the additional properties of "status" and "ok".
 
 ![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/href%20text%20file%20status%20ok.jpg)
 
-### --stats or --s
+### --stats
 
 You get the number of total and unique links inside the markdown file.
 
 ![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/total%20unique.jpg)
 
-### --validate --stats or --v --s
+### --validate --stats
 
 You can get the total number of links, unique and broken links inside the markdown file.
 
