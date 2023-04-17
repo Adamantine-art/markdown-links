@@ -51,6 +51,6 @@
     "jest": "^29.5.0"
   },
   "bin": {
-    "mdlinks-adamantine": "./cli.js"
+    "adamantine-links": "./cli.js"
   }
 }

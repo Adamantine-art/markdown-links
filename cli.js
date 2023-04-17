@@ -10,13 +10,13 @@ const help = process.argv.includes('--help') || process.argv.includes('--h');
 const cli = () => {
 
     if (!path || help) {
-        console.log(chalk.greenBright('✦ '), chalk.magenta('Welcome to the Markdown Links Library'), chalk.greenBright('✦\n'));
-        console.log('Markdown Links is a library where you can verify the status of your links within a Markdown file.');
-        console.log('Please introduce the path of your .md file.');
-        console.log('You can use the following commands:\n');
-        console.log("To get an array with your link's status use --validate or --v");
+        console.log(chalk.greenBright('✦ '), chalk.magenta('Welcome to the Adamantine Links Library'), chalk.greenBright('✦\n'));
+        console.log('Adamantine Links is a library where you can verify the status of your links within any Markdown file.');
+        console.log('Please write the path of your .md file to get a list of your links.');
+        console.log('Also, you can add the following commands:\n');
+        console.log("To get your link's current status use --validate or --v");
         console.log('To get the total and unique number of links residing in your .md file use --stats or --s');
-        console.log('To get the number of the broken links use --validate --stats or --v --s');
+        console.log('To aditionally get the number of the broken links use --validate --stats or --v --s');
     }
     else if (!validate && !stats) {
         return mdLinks(path, { validate: false }).then((link) => {
@@ -59,6 +59,14 @@ const cli = () => {
             console.log(chalk.magentaBright('✦ '), ('total: '), (totalLinks(link)));
             console.log(chalk.magentaBright('✦ '), ('unique: '), (uniqueLinks(link)));
             console.log(chalk.magentaBright('✦ '), ('broken: '), (chalk.red(brokenLinks(link))));
+            process.exit(0);
+        }).catch(console.error);
+    }
+    else if (!validate && stats) {
+        return mdLinks(path, { validate: false, stats }).then((link) => {
+
+            console.log(chalk.magentaBright('✦ '), ('total: '), (totalLinks(link)));
+            console.log(chalk.magentaBright('✦ '), ('unique: '), (uniqueLinks(link)));
             process.exit(0);
         }).catch(console.error);
     }
