@@ -1,4 +1,4 @@
-# ✦ Adamantine Links ✦
+# ✦ Adamantine Links Library ✦
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/Adamantine-art/markdown-links?&color=C576F6&logo=GitHub)
 

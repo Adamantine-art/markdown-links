@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const mdLinks = require('./index');
 const { totalLinks, brokenLinks, uniqueLinks } = require('./api');
 const chalk = require('chalk');

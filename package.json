@@ -1,6 +1,6 @@
 {
-  "name": "md-links",
-  "version": "0.1.0",
+  "name": "adamantine-links",
+  "version": "1.0.0",
   "engines": {
     "node": ">=16.x"
   },
@@ -9,8 +9,8 @@
     "version": "5.5.0",
     "commit": "a63a770ea33332882790401851df337734b0b734"
   },
-  "description": "Node.js library to detect broken links within markdown files",
-  "main": "index.js",
+  "description": "Adamantine Links is a library where you can extract your links in a markdown file, giving you important information about the status of each one. You can see which ones are broken with their respective HTTP status code.",
+  "main": "cli.js",
   "directories": {
     "test": "test"
   },
