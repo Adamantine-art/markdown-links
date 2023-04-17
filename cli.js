@@ -16,7 +16,7 @@ const cli = () => {
         console.log('Also, you can add the following commands:\n');
         console.log("To get your link's current status use --validate or --v");
         console.log('To get the total and unique number of links residing in your .md file use --stats or --s');
-        console.log('To aditionally get the number of the broken links use --validate --stats or --v --s');
+        console.log('To additionally get the number of the broken links use --validate --stats or --v --s');
     }
     else if (!validate && !stats) {
         return mdLinks(path, { validate: false }).then((link) => {

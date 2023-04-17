@@ -45,14 +45,15 @@ git clone https://github.com/Adamantine-art/markdown-links.git
 
 After you have installed the package you can just execute `adamantine-links` to see the welcome message where you will be shown the commands you can use.
 
--image-
+![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/welcome.jpg)
 
-You can execute the package following the next structure:
+You can parse a file following this structure:
 
 `adamantine-links your-file.md --CLIoptions`
 
-You will see something like this
+Then the output will be an array of objects with all the links and their properties.
 
+![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/href%20text%20file.jpg)
 
 
 ## 3. Some Extra Stats
@@ -61,12 +62,18 @@ You can get more specific stats by using the following commands:
 
 ### --validate or --v
 
-You get the aditional properties of "status" and "ok".
+You get the additional properties of "status" and "ok".
+
+![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/href%20text%20file%20status%20ok.jpg)
 
 ### --stats or --s
 
 You get the number of total and unique links inside the markdown file.
 
+![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/total%20unique.jpg)
+
 ### --validate --stats or --v --s
 
 You can get the total number of links, unique and broken links inside the markdown file.
+
+![adamantine-links](https://raw.githubusercontent.com/Adamantine-art/markdown-links/main/img/total%20unique%20broken.jpg)
