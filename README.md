@@ -1,6 +1,6 @@
 # ✦ Adamantine Links ✦
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/Adamantine-art/markdown-links?&color=C576F6&logo=GitHub)  ![npm](https://img.shields.io/npm/v/adamantine-art-markdown-links?&color=C576F6&label=npm) ![Tests](https://img.shields.io/badge/test-ok-green)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Adamantine-art/markdown-links?&color=C576F6&logo=GitHub)
 
 ## Index
 
