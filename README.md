@@ -1,9 +1,11 @@
-# Markdown Links
+# ✦ Adamantine Links ✦
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Adamantine-art/markdown-links?&color=C576F6&logo=GitHub)  ![npm](https://img.shields.io/npm/v/adamantine-art-markdown-links?&color=C576F6&label=npm) ![Tests](https://img.shields.io/badge/test-ok-green)
 
 ## Index
 
 * [1. About the Library](#1-About-the-Library)
-* [2. Install & Quick Start](#2-Install-&-Quick-Start)
+* [2. Install and Quick Start](#2-Install-and-Quick-Start)
 * [3. Some Extra Stats](#3-Some-Extra-Stats)
 
 
@@ -18,7 +20,7 @@ These `Markdown` files usually contain _links_ (links) which are often broken or
 Within an open source community, we have been proposed to create a tool using [Node.js](https://nodejs.org/), that reads and parses files in the `Markdown` format to verify the links they contain and report some statistics.
 
 
-## 2. Install & Quick Start
+## 2. Install and Quick Start
 
 ### Install
 
